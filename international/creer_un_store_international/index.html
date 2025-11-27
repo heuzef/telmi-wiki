@@ -203,15 +203,17 @@
     <article>
         <p><h1 id="ouvrir-un-store-international-telmi">Ouvrir un store international Telmi</h1>
 <p>Cette documentation explique en détail comment mettre en production un store Telmi pour héberger des packs d'histoire dans une langue étrangère précise.</p>
-<p>Elle s'adresse donc à vous si :
-* Vous êtes bilingue.
-* Vous avez la volonté de gérer un store Telmi officiel dans une langue étrangère.
-* Vous possédez un compte Github et vous savez comment l'utiliser.</p>
+<p>Elle s'adresse donc à vous si :</p>
+<ul>
+<li>Vous êtes bilingue.</li>
+<li>Vous avez la volonté de gérer un store Telmi officiel dans une langue étrangère.</li>
+<li>Vous possédez un compte Github et vous savez comment l'utiliser.</li>
+</ul>
 <p>Vous êtes partant ? Super ! N'hésitez pas à demander de l'aide à la communauté Telmi !</p>
 <h2 id="structure-dun-store-telmi">Structure d'un store Telmi</h2>
 <p>Un store Telmi est basiquement un fichier JSON qui est appelé sur le logiciel Telmi-Sync, ce dernier contient toutes les informations des packs d'histoire. Il est resynchronisé à chaque lancement du logiciel. Votre rôle est donc de faire en sorte que ce fichier JSON soit régulièrement mis à jour et publiquement accessible. Pour cela, deux services sont donc exploités : Github et Deno. Github héberge les histoires, les informations et met à disposition le fichier JSON du store. Deno de son côté, sert uniquement à déclencher la mise à jour quotidienne du fichier JSON.</p>
 <h2 id="la-langue">La langue</h2>
-<p>Pour commencer, identifiez le code ISO 639-1 du pays concerné par votre langue : https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1
+<p>Pour commencer, identifiez le code <a href="https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1">ISO 639-1</a> du pays concerné par votre langue.
 Par exemple "FR", pour la France.</p>
 <blockquote>
 <p>⚠️ Dans la suite de cette documentation, c'est le code "EN" qui sera pris en exemple, remplacez donc <strong>systématiquement</strong> ce dernier par votre propre code pays ⚠️</p>
@@ -226,7 +228,7 @@ Par exemple "FR", pour la France.</p>
 <ul>
 <li>Nom : <code>Telmi Store EN</code></li>
 <li>Une description traduite dans votre langue</li>
-<li>Le lien vers https://telmi.fr</li>
+<li>Le lien vers <code>https://telmi.fr</code></li>
 <li>Une icône personnalisée avec le drapeau de votre langue, vous pouvez utiliser <a href="../assets/telmi-icon-flag.xcf">ce template XCF</a> avec <a href="https://www.gimp.org">GIMP</a> si besoin pour créer votre icône.</li>
 </ul>
 <p><img alt="" src="../assets/github_04.png" /></p>
@@ -236,9 +238,9 @@ Par exemple "FR", pour la France.</p>
 <p><img alt="" src="../assets/github_06.png" /></p>
 <p>Ce store doit être initialisé avec quelques fichiers, dossier et surtout la bannière traduite dans votre langue. Pour faire ceci, reprenez la structure des dépôts existants, par exemple : </p>
 <ul>
-<li>https://github.com/telmi-store/.github/archive/refs/heads/main.zip</li>
-<li>https://github.com/telmi-store-en/.github/archive/refs/heads/main.zip</li>
-<li>https://github.com/telmi-store-cn/.github/archive/refs/heads/main.zip</li>
+<li><a href="https://github.com/telmi-store/.github/archive/refs/heads/main.zip">https://github.com/telmi-store/.github/archive/refs/heads/main.zip</a></li>
+<li><a href="https://github.com/telmi-store-en/.github/archive/refs/heads/main.zip">https://github.com/telmi-store-en/.github/archive/refs/heads/main.zip</a></li>
+<li><a href="https://github.com/telmi-store-cn/.github/archive/refs/heads/main.zip">https://github.com/telmi-store-cn/.github/archive/refs/heads/main.zip</a></li>
 </ul>
 <p>etc ...</p>
 <p>Pour concevoir la bannière, vous pouvez utiliser <a href="../assets/banner-telmi.xcf">ce template XCF</a> avec <a href="https://www.gimp.org">GIMP</a> si besoin pour la concevoir.</p>
@@ -261,7 +263,7 @@ git push -u origin main
 </code></pre>
 <p>Une fois votre dépôt <code>.github</code> prêt, nous pouvons passer à la mise en place du fichier GIST.</p>
 <h2 id="mise-en-place-dun-gist">Mise en place d'un GIST</h2>
-<p>Github GIST est la fonctionnalité qui rendra votre fichier JSON visible publiquement. Rendez-vous sur https://gist.github.com pour commencer à le créer en cliquant sur <strong>Create secret gist</strong>. Nommez-le <code>telmi-store-en</code>. Ajouter un simple point pour l'initialiser.</p>
+<p>Github GIST est la fonctionnalité qui rendra votre fichier JSON visible publiquement. Rendez-vous sur <a href="https://gist.github.com">https://gist.github.com</a> pour commencer à le créer en cliquant sur <strong>Create secret gist</strong>. Nommez-le <code>telmi-store-en</code>. Ajouter un simple point pour l'initialiser.</p>
 <p><img alt="" src="../assets/gist_01.png" /></p>
 <p>Un fichier <code>gistfile1.txt</code> est créé, renommez-le <code>telmi-interactive-en.json</code></p>
 <p><img alt="" src="../assets/gist_02.png" /></p>
@@ -296,7 +298,7 @@ git push -u origin main
 <li>Générer le fichier JSON de notre store</li>
 <li>Pousser ce dernier sur GIST pour forcer son actualisation</li>
 </ul>
-<p>Vous pouvez donc commencer par vous authentifier (avec votre compte Github) sur https://console.deno.com/login</p>
+<p>Vous pouvez donc <a href="https://console.deno.com/login">commencer par vous authentifier sur le site de Deno</a> (avec votre compte Github).</p>
 <p><img alt="" src="../assets/deno_01.png" /></p>
 <p>Installez ensuite Deno sur votre machine : </p>
 <p><code>curl -fsSL https://deno.land/install.sh | sh</code></p>
