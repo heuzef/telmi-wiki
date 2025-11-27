@@ -3,9 +3,9 @@
 Cette documentation explique en détail comment mettre en production un store Telmi pour héberger des packs d'histoire dans une langue étrangère précise.
 
 Elle s'adresse donc à vous si :
-- Vous êtes bilingue.
-- Vous avez la volonté de gérer un store Telmi officiel dans une langue étrangère.
-- Vous possédez un compte Github et vous savez comment l'utiliser.
+* Vous êtes bilingue.
+* Vous avez la volonté de gérer un store Telmi officiel dans une langue étrangère.
+* Vous possédez un compte Github et vous savez comment l'utiliser.
 
 Vous êtes partant ? Super ! N'hésitez pas à demander de l'aide à la communauté Telmi !
 
@@ -104,13 +104,13 @@ C'est prêt ! Récupérez l'URL publique en cliquant sur **Share**.
 
 Votre lien URL ressemblera à quelque chose comme ceci :
 
-https://gist.github.com/heuzef/c2da96666a3a84397f19576d94d15a57
+`https://gist.github.com/heuzef/c2da96666a3a84397f19576d94d15a57`
 
 Ce lien comprend l'ID de votre GIST (ici `c2da96666a3a84397f19576d94d15a57` dans cet exemple), notez-le précieusement.
 
 Ainsi, le lien officiel de votre nouveau store sera donc structuré ainsi :
 
-https://gist.githubusercontent.com/heuzef/c2da96666a3a84397f19576d94d15a57/raw/telmi-interactive-en.json
+`https://gist.githubusercontent.com/heuzef/c2da96666a3a84397f19576d94d15a57/raw/telmi-interactive-en.json`
 
 Adaptez ce lien avec votre ID GIST et code pays, vous devriez ainsi pouvoir consulter votre fichier JSON (qui ne contient qu'un point à ce stade). C'est également ce lien, que vous pourrez ajouter sur Telmi-Sync.
 
@@ -124,7 +124,7 @@ Mais avant cela, il faut lui donner l'autorisation de le faire, nous allons donc
 
 ![](assets/gist_08.png)
 
-Vous pouvez directement commencer la création de votre Token via ce lien : https://github.com/settings/tokens/new
+Vous pouvez directement commencer la création de votre Token via ce lien : [https://github.com/settings/tokens/new](https://github.com/settings/tokens/new)
 
 Donnez-lui un nom parlant, par exemple `telmi-store-gists` et surtout spécifiez bien que ce dernier **n'a pas de date d'expiration**.
 
@@ -343,7 +343,7 @@ Si le déploiement réussis, vous devriez avoir un service accessible sur un dom
 
 ![](assets/deno_03.png)
 
-Finalement, RDV sur https://dash.deno.com/projects/telmi-store-en/cron pour visualiser l'état de l'exécution du script par CRON. Le statut "Last Run" doit indiquer "Succeeded".
+Finalement, RDV sur [https://dash.deno.com/projects/telmi-store-en/cron](https://dash.deno.com/projects/telmi-store-en/cron) pour visualiser l'état de l'exécution du script par CRON. Le statut "Last Run" doit indiquer "Succeeded".
 
 ## Création d'un premier pack d'histoire
 
@@ -351,7 +351,7 @@ Finalement, RDV sur https://dash.deno.com/projects/telmi-store-en/cron pour visu
 
 Pour que la synchronisation puisse fonctionner, il vous faut initialiser un premier pack d'histoire, afin de voir apparaître ce dernier sur telmi-sync.
 
-Donc c'est parti mon Telmi, retournons sur notre organisation Github, pour créer un nouveau dépôt. Prenez exemple des dépôts d'histoire existants, par exemple : https://github.com/orgs/telmi-store/repositories
+Donc c'est parti mon Telmi, retournons sur notre organisation Github, pour créer un nouveau dépôt. Prenez exemple des dépôts d'histoire existants, par exemple : [https://github.com/orgs/telmi-store/repositories](https://github.com/orgs/telmi-store/repositories)
 
 Chaque dépôt est structuré très précisément, donc soyez très rigoureux, mais globalement, vous y retrouverez la même logique de structure avec quelques fichiers à modifier.
 
