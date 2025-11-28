@@ -35,7 +35,7 @@ Commencez à personaliser l'organisation :
 * Nom : `Telmi Store EN`
 * Une description
 * Le lien vers `https://telmi.fr`
-* Une icône personnalisée, vous pouvez utiliser [ce template XCF](assets/files/telmi-icon-flag.xcf) avec [GIMP](https://www.gimp.org) si besoin pour créer votre icône.
+* Une icône personnalisée, vous pouvez utiliser [ce template XCF](https://github.com/heuzef/telmi-wiki/raw/refs/heads/gh-pages/stores/assets/files/telmi-icon-flag.xcf) avec [GIMP](https://www.gimp.org) si besoin pour créer votre icône.
 
 ![](assets/img/github_04.png)
 
@@ -55,7 +55,7 @@ Ce store doit être initialisé avec quelques fichiers, dossier et surtout la ba
 
 etc ...
 
-Pour concevoir la bannière, vous pouvez utiliser [ce template XCF](assets/files/banner-telmi.xcf) avec [GIMP](https://www.gimp.org) si besoin pour la concevoir.
+Pour concevoir la bannière, vous pouvez utiliser [ce template XCF](https://github.com/heuzef/telmi-wiki/raw/refs/heads/gh-pages/stores/assets/files/banner-telmi.xcf) avec [GIMP](https://www.gimp.org) si besoin pour la concevoir.
 
 ![](assets/img/gimp_01.png)
 
