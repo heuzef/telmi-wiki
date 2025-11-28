@@ -297,22 +297,22 @@
 </blockquote>
 <h2 id="creation-dune-organisation-github">Création d'une organisation Github</h2>
 <p>Identifiez-vous sur Github puis débutez la création d'une organisation avec le nom de votre store.</p>
-<p><img alt="" src="../assets/github_01.png" /></p>
-<p><img alt="" src="../assets/github_02.png" /></p>
+<p><img alt="" src="../assets/img/github_01.png" /></p>
+<p><img alt="" src="../assets/img/github_02.png" /></p>
 <p>Vous pouvez également ajouter quelques éminents membres de la communauté Telmi en soutient 🤪</p>
-<p><img alt="" src="../assets/github_03.png" /></p>
+<p><img alt="" src="../assets/img/github_03.png" /></p>
 <p>Commencez à personaliser l'organisation : </p>
 <ul>
 <li>Nom : <code>Telmi Store EN</code></li>
 <li>Une description</li>
 <li>Le lien vers <code>https://telmi.fr</code></li>
-<li>Une icône personnalisée, vous pouvez utiliser <a href="../assets/telmi-icon-flag.xcf">ce template XCF</a> avec <a href="https://www.gimp.org">GIMP</a> si besoin pour créer votre icône.</li>
+<li>Une icône personnalisée, vous pouvez utiliser <a href="../assets/files/telmi-icon-flag.xcf">ce template XCF</a> avec <a href="https://www.gimp.org">GIMP</a> si besoin pour créer votre icône.</li>
 </ul>
-<p><img alt="" src="../assets/github_04.png" /></p>
+<p><img alt="" src="../assets/img/github_04.png" /></p>
 <p>Votre organisation est prête, il est temps d'initialiser le premier dépôt <code>.github</code>, c'est un dépôt de configuration spécial.</p>
-<p><img alt="" src="../assets/github_05.png" /></p>
+<p><img alt="" src="../assets/img/github_05.png" /></p>
 <p>Ajoutez ce dernier en accès public.</p>
-<p><img alt="" src="../assets/github_06.png" /></p>
+<p><img alt="" src="../assets/img/github_06.png" /></p>
 <p>Ce store doit être initialisé avec quelques fichiers, dossier et surtout la bannière traduite dans votre langue. Pour faire ceci, reprenez la structure des dépôts existants, par exemple : </p>
 <ul>
 <li><a href="https://github.com/telmi-store/.github/archive/refs/heads/main.zip">https://github.com/telmi-store/.github/archive/refs/heads/main.zip</a></li>
@@ -320,9 +320,9 @@
 <li><a href="https://github.com/telmi-store-cn/.github/archive/refs/heads/main.zip">https://github.com/telmi-store-cn/.github/archive/refs/heads/main.zip</a></li>
 </ul>
 <p>etc ...</p>
-<p>Pour concevoir la bannière, vous pouvez utiliser <a href="../assets/banner-telmi.xcf">ce template XCF</a> avec <a href="https://www.gimp.org">GIMP</a> si besoin pour la concevoir.</p>
-<p><img alt="" src="../assets/gimp_01.png" /></p>
-<p><img alt="" src="../assets/gimp_02.png" /></p>
+<p>Pour concevoir la bannière, vous pouvez utiliser <a href="../assets/files/banner-telmi.xcf">ce template XCF</a> avec <a href="https://www.gimp.org">GIMP</a> si besoin pour la concevoir.</p>
+<p><img alt="" src="../assets/img/gimp_01.png" /></p>
+<p><img alt="" src="../assets/img/gimp_02.png" /></p>
 <p>Voici quelques instructions pour vous aidez à initialiser ce dépôt :</p>
 <pre><code># Récupérer le dépôt vide sur en local
 git clone git@github.com:telmi-store-en/.github.git
@@ -341,13 +341,13 @@ git push -u origin main
 <p>Une fois votre dépôt <code>.github</code> prêt, nous pouvons passer à la mise en place du fichier GIST.</p>
 <h2 id="mise-en-place-dun-gist">Mise en place d'un GIST</h2>
 <p>Github GIST est la fonctionnalité qui rendra votre fichier JSON visible publiquement. Rendez-vous sur <a href="https://gist.github.com">https://gist.github.com</a> pour commencer à le créer en cliquant sur <strong>Create secret gist</strong>. Nommez-le puis ajouter un simple point pour l'initialiser.</p>
-<p><img alt="" src="../assets/gist_01.png" /></p>
+<p><img alt="" src="../assets/img/gist_01.png" /></p>
 <p>Un fichier <code>gistfile1.txt</code> est créé, renommez-le avec un format standardisé comme par exemple <code>telmi-interactive-en.json</code>.</p>
-<p><img alt="" src="../assets/gist_02.png" /></p>
-<p><img alt="" src="../assets/gist_03.png" /></p>
-<p><img alt="" src="../assets/gist_04.png" /></p>
+<p><img alt="" src="../assets/img/gist_02.png" /></p>
+<p><img alt="" src="../assets/img/gist_03.png" /></p>
+<p><img alt="" src="../assets/img/gist_04.png" /></p>
 <p>C'est prêt ! Récupérez l'URL publique en cliquant sur <strong>Share</strong>.</p>
-<p><img alt="" src="../assets/gist_05.png" /></p>
+<p><img alt="" src="../assets/img/gist_05.png" /></p>
 <p>Votre lien URL ressemblera à quelque chose comme ceci :</p>
 <p><code>https://gist.github.com/heuzef/c2da96666a3a84397f19576d94d15a57</code></p>
 <p>Ce lien comprend l'ID de votre GIST (ici <code>c2da96666a3a84397f19576d94d15a57</code> dans cet exemple), notez-le précieusement.</p>
@@ -356,13 +356,13 @@ git push -u origin main
 <p>Adaptez ce lien avec votre ID GIST et nom du fichier, vous devriez ainsi pouvoir consulter votre fichier JSON (qui ne contient qu'un point à ce stade). C'est également ce lien, que vous pourrez ajouter sur Telmi-Sync.</p>
 <p>C'est tout bon ? Super ! Nous allons pouvoir commencer la configuration de Deno, qui s'occupera de mettre à jour quotidiennement ce fichier JSON. </p>
 <p>Mais avant cela, il faut lui donner l'autorisation de le faire, nous allons donc créer un Token d'accès dédié. Pour cela, accéder à la gestion de vos Tokens.</p>
-<p><img alt="" src="../assets/gist_06.png" /></p>
-<p><img alt="" src="../assets/gist_07.png" /></p>
-<p><img alt="" src="../assets/gist_08.png" /></p>
+<p><img alt="" src="../assets/img/gist_06.png" /></p>
+<p><img alt="" src="../assets/img/gist_07.png" /></p>
+<p><img alt="" src="../assets/img/gist_08.png" /></p>
 <p>Vous pouvez directement commencer la création de votre Token via ce lien : <a href="https://github.com/settings/tokens/new">https://github.com/settings/tokens/new</a></p>
 <p>Donnez-lui un nom parlant, par exemple <code>telmi-store-gists</code> et surtout spécifiez bien que ce dernier <strong>n'a pas de date d'expiration</strong>.</p>
 <p>Finalement, pour les permissions (Select scopes), spécifiez uniquement l'accès à <strong>gist</strong>.</p>
-<p><img alt="" src="../assets/gist_09.png" /></p>
+<p><img alt="" src="../assets/img/gist_09.png" /></p>
 <p>À la création, le Token apparaîtra en clair, <strong>notez-le précieusement</strong>, car vous n'aurez plus accès à ce dernier après. </p>
 <p>Votre token ressemble à ceci :</p>
 <p><code>github_pat_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></p>
@@ -376,7 +376,7 @@ git push -u origin main
 <li>Pousser ce dernier sur GIST pour forcer son actualisation</li>
 </ul>
 <p>Vous pouvez donc <a href="https://console.deno.com/login">commencer par vous authentifier sur le site de Deno</a> (avec votre compte Github).</p>
-<p><img alt="" src="../assets/deno_01.png" /></p>
+<p><img alt="" src="../assets/img/deno_01.png" /></p>
 <p>Installez ensuite Deno sur votre machine : </p>
 <p><code>curl -fsSL https://deno.land/install.sh | sh</code></p>
 <p>Puis finalement, installez également l'outil de gestion (CLI) qui nous servira à déployer notre projet :</p>
@@ -543,9 +543,9 @@ Deno.cron('telmi-interactive-en', '0 1,13 * * *', async () =&gt; {
 deployctl deploy --prod --project=telmi-store-en --unstable src/main.ts
 </code></pre>
 <p>Une demande d'autorisation est demandée pour poursuivre.</p>
-<p><img alt="" src="../assets/deno_02.png" /></p>
+<p><img alt="" src="../assets/img/deno_02.png" /></p>
 <p>Si le déploiement réussis, vous devriez avoir un service accessible sur un domaine comme par exemple : <code>https://telmi-store-en.deno.dev</code> , mais également un fichier <code>deno.json</code> créé par le déploiement.</p>
-<p><img alt="" src="../assets/deno_03.png" /></p>
+<p><img alt="" src="../assets/img/deno_03.png" /></p>
 <p>Finalement, RDV sur <a href="https://dash.deno.com">https://dash.deno.com</a> pour visualiser l'état de l'exécution du script par CRON. Le statut "Last Run" doit indiquer "Succeeded".</p>
 <h2 id="creation-dun-premier-pack-dhistoire">Création d'un premier pack d'histoire</h2>
 <blockquote>
@@ -554,7 +554,7 @@ deployctl deploy --prod --project=telmi-store-en --unstable src/main.ts
 <p>Pour que la synchronisation puisse fonctionner, il vous faut initialiser un premier pack d'histoire, afin de voir apparaître ce dernier sur telmi-sync.</p>
 <p>Donc c'est parti mon Telmi, retournons sur notre organisation Github, pour créer un nouveau dépôt. Prenez exemple des dépôts d'histoire existants, par exemple : <a href="https://github.com/orgs/telmi-store/repositories">https://github.com/orgs/telmi-store/repositories</a></p>
 <p>Chaque dépôt est structuré très précisément, donc soyez très rigoureux, mais globalement, vous y retrouverez la même logique de structure avec quelques fichiers à modifier.</p>
-<p><img alt="" src="../assets/github_07.png" /></p>
+<p><img alt="" src="../assets/img/github_07.png" /></p>
 <p>Puis, une fois votre dépôt prêt, vous pourrez créer une "Realease" dans le menu du même nom, qui contiendra votre pack d'histoire au format <strong>ZIP</strong>.</p>
 <ul>
 <li>Ajouter un nom avec la nomenclature des noms de pack (âge, titre, langue)</li>
@@ -562,9 +562,9 @@ deployctl deploy --prod --project=telmi-store-en --unstable src/main.ts
 <li>Ajouter la description, attention au format du contenu, c'est ce dernier qui est analysé sur le store</li>
 <li>Ajouter enfin le pack d'histoire au format <strong>ZIP</strong></li>
 </ul>
-<p><img alt="" src="../assets/github_08.png" /></p>
+<p><img alt="" src="../assets/img/github_08.png" /></p>
 <p>Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de pack (âge, titre, langue), autrement, le script planifié par CRON sur Deno sera en échec.</p>
-<p><img alt="" src="../assets/github_09.png" /></p>
+<p><img alt="" src="../assets/img/github_09.png" /></p>
 <p>C'est tout bon, vérifiez bien le lendemain que votre nouveau pack d'histoire est correctement visible sur Telmi-Sync, puis répéter l'opération pour chaque pack d'histoire 💪</p>
 <hr /></p>
     </article>
