@@ -1,6 +1,6 @@
-# Créer un store Telmi
+# Créer son store Telmi
 
-Cette documentation explique en détail comment mettre en production un store Telmi pour héberger des packs d'histoire.
+Cette documentation explique en détail comment mettre en production son store Telmi pour héberger des packs d'histoire.
 
 Elle s'adresse donc à vous si :
 

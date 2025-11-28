@@ -7,7 +7,8 @@ nav:
     - ✨ Accueil: index.md
     - 🛍️ Stores: 
       - Stores internationaux: stores/stores_internationaux.md
-      - Créer un store: stores/creer_un_store_telmi.md
+      - Créer son Store Telmi: stores/creer_son_store_telmi.md
+      - Héberger son Store Telmi: stores/heberger_son_store_telmi.md
     - 💳 Achats:
       - Miyoo Mini Plus : achats/miyoo_mini_plus.md
       - Carte SD: achats/carte_sd.md
