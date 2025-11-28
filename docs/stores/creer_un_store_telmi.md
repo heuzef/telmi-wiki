@@ -1,11 +1,10 @@
-# Ouvrir un store international Telmi
+# Créer un store Telmi
 
-Cette documentation explique en détail comment mettre en production un store Telmi pour héberger des packs d'histoire dans une langue étrangère précise.
+Cette documentation explique en détail comment mettre en production un store Telmi pour héberger des packs d'histoire.
 
 Elle s'adresse donc à vous si :
 
-* Vous êtes bilingue.
-* Vous avez la volonté de gérer un store Telmi officiel dans une langue étrangère.
+* Vous avez la volonté de gérer et maintenir un store Telmi.
 * Vous possédez un compte Github et vous savez comment l'utiliser.
 
 Vous êtes partant ? Super ! N'hésitez pas à demander de l'aide à la communauté Telmi !
@@ -14,16 +13,13 @@ Vous êtes partant ? Super ! N'hésitez pas à demander de l'aide à la communau
 
 Un store Telmi est basiquement un fichier JSON qui est appelé sur le logiciel Telmi-Sync, ce dernier contient toutes les informations des packs d'histoire. Il est resynchronisé à chaque lancement du logiciel. Votre rôle est donc de faire en sorte que ce fichier JSON soit régulièrement mis à jour et publiquement accessible. Pour cela, deux services sont donc exploités : Github et Deno. Github héberge les histoires, les informations et met à disposition le fichier JSON du store. Deno de son côté, sert uniquement à déclencher la mise à jour quotidienne du fichier JSON.
 
-## La langue
+## Notre store exemple
 
-Pour commencer, identifiez le code [ISO 639-1](https://fr.wikipedia.org/wiki/Liste_des_codes_ISO_639-1) du pays concerné par votre langue.
-Par exemple "FR", pour la France.
-
-> ⚠️ Dans la suite de cette documentation, c'est le code "EN" qui sera pris en exemple, remplacez donc **systématiquement** ce dernier par votre propre code pays ⚠️
+> ⚠️ Dans la suite de cette documentation, c'est le store `telmi-store-en` qui sera pris en exemple, remplacez donc **systématiquement** ce dernier par votre propre nom de Store ⚠️
 
 ## Création d'une organisation Github
 
-Identifiez-vous sur Github puis débutez la création d'une organisation avec le nom : `telmi-store-en`
+Identifiez-vous sur Github puis débutez la création d'une organisation avec le nom de votre store.
 
 ![](assets/github_01.png)
 
@@ -37,9 +33,9 @@ Vous pouvez également ajouter quelques éminents membres de la communauté Telm
 Commencez à personaliser l'organisation : 
 
 * Nom : `Telmi Store EN`
-* Une description traduite dans votre langue
+* Une description
 * Le lien vers `https://telmi.fr`
-* Une icône personnalisée avec le drapeau de votre langue, vous pouvez utiliser [ce template XCF](assets/telmi-icon-flag.xcf) avec [GIMP](https://www.gimp.org) si besoin pour créer votre icône.
+* Une icône personnalisée, vous pouvez utiliser [ce template XCF](assets/telmi-icon-flag.xcf) avec [GIMP](https://www.gimp.org) si besoin pour créer votre icône.
 
 ![](assets/github_04.png)
 
@@ -87,11 +83,11 @@ Une fois votre dépôt ``.github`` prêt, nous pouvons passer à la mise en plac
 
 ## Mise en place d'un GIST
 
-Github GIST est la fonctionnalité qui rendra votre fichier JSON visible publiquement. Rendez-vous sur [https://gist.github.com](https://gist.github.com) pour commencer à le créer en cliquant sur **Create secret gist**. Nommez-le `telmi-store-en`. Ajouter un simple point pour l'initialiser.
+Github GIST est la fonctionnalité qui rendra votre fichier JSON visible publiquement. Rendez-vous sur [https://gist.github.com](https://gist.github.com) pour commencer à le créer en cliquant sur **Create secret gist**. Nommez-le puis ajouter un simple point pour l'initialiser.
 
 ![](assets/gist_01.png)
 
-Un fichier `gistfile1.txt` est créé, renommez-le `telmi-interactive-en.json`
+Un fichier `gistfile1.txt` est créé, renommez-le avec un format standardisé comme par exemple `telmi-interactive-en.json`.
 
 ![](assets/gist_02.png)
 
@@ -113,7 +109,7 @@ Ainsi, le lien officiel de votre nouveau store sera donc structuré ainsi :
 
 `https://gist.githubusercontent.com/heuzef/c2da96666a3a84397f19576d94d15a57/raw/telmi-interactive-en.json`
 
-Adaptez ce lien avec votre ID GIST et code pays, vous devriez ainsi pouvoir consulter votre fichier JSON (qui ne contient qu'un point à ce stade). C'est également ce lien, que vous pourrez ajouter sur Telmi-Sync.
+Adaptez ce lien avec votre ID GIST et nom du fichier, vous devriez ainsi pouvoir consulter votre fichier JSON (qui ne contient qu'un point à ce stade). C'est également ce lien, que vous pourrez ajouter sur Telmi-Sync.
 
 C'est tout bon ? Super ! Nous allons pouvoir commencer la configuration de Deno, qui s'occupera de mettre à jour quotidiennement ce fichier JSON. 
 
@@ -372,7 +368,5 @@ Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le
 ![](assets/github_09.png)
 
 C'est tout bon, vérifiez bien le lendemain que votre nouveau pack d'histoire est correctement visible sur Telmi-Sync, puis répéter l'opération pour chaque pack d'histoire 💪
-
-> ⚠️ Soyez prudent concernant les droits d'auteur, aucun pack d'histoire illégal ne doit être mis à disposition du public ⚠️
 
 ---

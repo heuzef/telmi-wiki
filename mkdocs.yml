@@ -1,13 +1,14 @@
 site_name: Telmi Wiki
+site_description: Partage de connaissance de la communauté Telmi !
 repo_name: heuzef/telmi-wiki
 copyright: Telmi Interactive
 
 nav:
     - ✨ Accueil: index.md
-    - 🏳️ International: 
-      - Stores internationaux : international/stores_internationaux.md
-      - Créer un store international: international/creer_un_store_international.md
-    - 🛍️ Achats :
+    - 🛍️ Stores: 
+      - Créer un store : stores/creer_un_store_telmi.md
+      - Stores internationaux : stores/stores_internationaux.md
+    - 💳 Achats :
       - Miyoo Mini Plus : achats/miyoo_mini_plus.md
       - Carte SD : achats/carte_sd.md
 
