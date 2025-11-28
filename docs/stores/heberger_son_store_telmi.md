@@ -10,7 +10,7 @@ Elle s'adresse donc à vous si :
 
 Le projet **Telmi-Store** initié par Jordan.Deroubaix est disponible ici : [https://github.com/jordanderoubaix/Telmi-store](https://github.com/jordanderoubaix/Telmi-store)
 
-Il est possible d'utiliser cette image avec cette configuration Docker-Compose :
+Il est possible d'utiliser une image Docker avec cette configuration Docker-Compose :
 
 ```
 services:
