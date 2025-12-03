@@ -20,7 +20,7 @@ nav:
     - 🪛 Bricolages:
       - Détails techniques de la Miyoo Mini Plus : bricolages/details_techniques_de_la_miyoo_mini_plus.md
     - 🚀 Developments:
-      - Installation manuel TelmiOS sur Linux : developments/installation_manuelle_telmios_sur_linux.md
+      - Installation manuelle TelmiOS sur Linux : developments/installation_manuelle_telmios_sur_linux.md
 
 theme:
   name: dracula
