@@ -1,6 +1,6 @@
 # Installation manuelle de TelmiOS sur Windows
 
-Pour s'assurer du bon fonctionnement du logiciel, il faudra formater cette carte au format "FAT32" grâce au logiciel RUFUS.
+Pour s'assurer du bon fonctionnement du logiciel, il faudra formater cette carte au format "FAT32" grâce au logiciel RUFUS (car Windows n'autorise pas le formatage FAT32 pour les carte supérieure à 32Go).
 
 * [Télécharger Rufus (rufus-x.xx.exe)](https://github.com/pbatard/rufus/releases/latest)
 
