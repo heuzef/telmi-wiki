@@ -8,7 +8,7 @@ Lancer un terminal puis afficher la liste des disques et leur partitions :
 fdisk -l
 ```
 
-Identifiez la carte SD et sa ou ses partitions (quelque chose comme `/dev/sdX`, mais attention **soyez certain de bien repérer votre carte SD avant d'aller plus loin !** ).
+Identifiez la carte SD et sa ou ses partitions (quelque chose comme `/dev/sdX`, mais attention **soyez certain de bien repérer votre carte SD avant d'aller plus loin !**).
 
 Démontez la ou les partitions avant de faire les prochaines actions de modification :
 
