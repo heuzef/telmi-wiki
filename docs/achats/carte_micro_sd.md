@@ -6,9 +6,9 @@ Pour une Telmi, une carte de 32G est recommandée : le stockage est suffisant et
 
 Attention : Parfois, des cartes MicroSD douteuses et des lecteurs de carte sont fournit avec la Miyoo : **jettez-les directement dans une poubelle de tri sélectif !**
 
-AliExpress et Temu sont à proscire, quasiment toutes les carte MicroSD
+AliExpress et Temu sont à proscire, quasiment toutes les cartes MicroSD sont de très mauvaise qualité.
 
-Cette page référence quelques sources de confiance, approuvée par les membres de la communauté, gardez tout de même les tickets au cas où :
+Cette page référence quelques sources de confiance, approuvées par les membres de la communauté, gardez tout de même les tickets au cas où :
 
 * [Grande surface : les grandes enseignes sont fiables (Leclerc, Fnac, Darty, ...), ils sont de bonne qualité, mais chère](https://www.darty.com/nav/recherche?seller=311290-311291-311289-327183-328771-311452-0&s=relevence&text=microsd&state=new_offer)
 * [Magasin Action, marque Philips, 128G pour 17€, bas de gamme de bonne réputation](https://www.action.com/fr-fr/p/3209995/carte-micro-sd-philips)
