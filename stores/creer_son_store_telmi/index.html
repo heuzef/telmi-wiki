@@ -589,7 +589,7 @@ deployctl deploy --prod --project=telmi-store-en --unstable src/main.ts
 <p>Finalement, RDV sur <a href="https://dash.deno.com">https://dash.deno.com</a> pour visualiser l'état de l'exécution du script par CRON. Le statut "Last Run" doit indiquer "Succeeded".</p>
 <h2 id="creation-dun-premier-pack-dhistoire">Création d'un premier pack d'histoire</h2>
 <blockquote>
-<p>⚠️ La création des packs d'histoire doit être très rigoureusement géré, autrement, l'exécution du script quotidien sur Deno échouera si l'un de vos packs d'histoire est mal configuré, pouvant rendre alors votre store hors service ⚠️</p>
+<p>⚠️ La création des packs d'histoire doit être très rigoureusement gérée, autrement, l'exécution du script quotidien sur Deno échouera si l'un de vos packs d'histoire est mal configuré, pouvant rendre alors votre store hors service ⚠️</p>
 </blockquote>
 <p>Pour que la synchronisation puisse fonctionner, il vous faut initialiser un premier pack d'histoire, afin de voir apparaître ce dernier sur telmi-sync.</p>
 <p>Donc c'est parti mon Telmi, retournons sur notre organisation Github, pour créer un nouveau dépôt. Prenez exemple des dépôts d'histoire existants, par exemple : <a href="https://github.com/orgs/telmi-store/repositories">https://github.com/orgs/telmi-store/repositories</a></p>
@@ -603,7 +603,7 @@ deployctl deploy --prod --project=telmi-store-en --unstable src/main.ts
 <li>Ajouter enfin le pack d'histoire au format <strong>ZIP</strong></li>
 </ul>
 <p><img alt="" src="../assets/img/github_08.png" /></p>
-<p>Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de pack (âge, titre, langue), autrement, le script planifié par CRON sur Deno sera en échec.</p>
+<p>Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de packs (âge, titre, langue), autrement, le script planifié par CRON sur Deno sera en échec.</p>
 <p><img alt="" src="../assets/img/github_09.png" /></p>
 <p>C'est tout bon, vérifiez bien le lendemain que votre nouveau pack d'histoire est correctement visible sur Telmi-Sync, puis répéter l'opération pour chaque pack d'histoire 💪</p>
 <hr /></p>
