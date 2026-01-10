@@ -19,26 +19,34 @@
   Il comporte donc un lecteur, la navigation et une gestion des formats d'histoires interactives ( inventaires, etc..).
 
  * **Le lecteur:**
+ 
    StoryTeller utilise "musicplayer" le lecteur embarque dans onionOS.
    Base sur WIP voir src/storyTeller/music_player.h
  * **La selection des histoires:**
+ 
    Voir src/storyTeller/app_selector.h
+   
     WIP
  * **Le format Studio et Telmi:** 
+ 
    La partie du code peut etre la plus importante, la lecture du fichier Json de l'histoire et la gestion du deroule de celle-ci..
    Voir src/storyTeller/stories_reader.h
+   
     WIP
 ## Architecture Miyoo/ Onion OS
 
 La Miyoo mini est basée sur l'architecture **ARMv7** ( 32bits)
+
 WIP
 
 Sous Onion OS, l'affichage est géré par la bibliothèque SDL (v2) 
+
 WIP
 
 ## Développement
 
 ### Lancer une session SSH
+
 WIP
 
 ### Telecharger les outils
@@ -47,6 +55,7 @@ Une toolchain est disponible ici https://github.com/shauninman/union-miyoomini-t
 Une procédure est également disponible dans la documentation OnionOs https://onionui.github.io/docs/dev/setup
 
 ## Compilation pour la Miyoo
+
 WIP
 
 ## Compilation pour une VM
