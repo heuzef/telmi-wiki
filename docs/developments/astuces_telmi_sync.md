@@ -7,7 +7,5 @@ Si vous souhaitez récupérer et sauvegarder votre configuration Telmi-Sync avec
 Ce dernier est localisé sur votre système dans le répertoire utilisateur :
 
 * Linux : ``~/.telmi``
-* MacOS : ``~/.telmi``
-Pour afficher les fichiers cachés sous mac, utiliser le raccourci clavier suivant :
-⇧⌘. (Majuscule + Command + Point)
-* Windows : ``C:\Users\<username>\.telmi`` 
+* MacOS : ``~/.telmi`` (Pour afficher les fichiers cachés sous mac, utiliser le raccourci clavier Majuscule + Command + Point : `⇧⌘.`)
+* Windows : ``C:\Users\<username>\.telmi``
