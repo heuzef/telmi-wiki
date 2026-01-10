@@ -344,7 +344,7 @@ Finalement, RDV sur [https://dash.deno.com](https://dash.deno.com) pour visualis
 
 ## Création d'un premier pack d'histoire
 
-> ⚠️ La création des packs d'histoire doit être très rigoureusement géré, autrement, l'exécution du script quotidien sur Deno échouera si l'un de vos packs d'histoire est mal configuré, pouvant rendre alors votre store hors service ⚠️
+> ⚠️ La création des packs d'histoire doit être très rigoureusement gérée, autrement, l'exécution du script quotidien sur Deno échouera si l'un de vos packs d'histoire est mal configuré, pouvant rendre alors votre store hors service ⚠️
 
 Pour que la synchronisation puisse fonctionner, il vous faut initialiser un premier pack d'histoire, afin de voir apparaître ce dernier sur telmi-sync.
 
@@ -363,7 +363,7 @@ Puis, une fois votre dépôt prêt, vous pourrez créer une "Realease" dans le m
 
 ![](assets/img/github_08.png)
 
-Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de pack (âge, titre, langue), autrement, le script planifié par CRON sur Deno sera en échec.
+Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de packs (âge, titre, langue), autrement, le script planifié par CRON sur Deno sera en échec.
 
 ![](assets/img/github_09.png)
 
