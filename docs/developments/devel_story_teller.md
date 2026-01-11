@@ -33,7 +33,7 @@ L'affichage est géré par la bibliothèque SDL (v2)
 WIP
 
 ## Développement
-
+Pour toute question concernant le développement de Telmi et de Story Teller, vous êtes bienvenus sur le canal dédié "développement" du [serveur Discord](https://discord.gg/ZTA5FyERbg)! 
 ### Lancer une session SSH
 
 Installation d'un serveur dropbear pour copier et envoyer des fichiers sur la Miyoo en utilisant la connexion wifi ( permet de gagner du temps en évitant de sortir et rentrer la carte Sd a chaque version).
