@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Installation manuelle TelmiOS sur Windows - Telmi Wiki</title>
+        <title>Guide du developpeur Telmi OS - Telmi Wiki</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -233,10 +233,18 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../installation_manuelle_telmios_sur_linux/"
+        <a href="../installation_manuelle_telmi_os_sur_linux/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Installation manuelle TelmiOS sur Linux
+            Installation manuelle Telmi OS sur Linux
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../installation_manuelle_telmi_os_sur_windows/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Installation manuelle Telmi OS sur Windows
         </a>
     </li>
                             
@@ -244,23 +252,15 @@
         <a href="./"
             class=" active 
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Installation manuelle TelmiOS sur Windows
+            Guide du developpeur Telmi OS
         </a>
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../guide_du_developpeur_telmi-os/"
+        <a href="../documentation_du_format_des_histoires/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Guide du developpeur Telmi-OS
-        </a>
-    </li>
-                            
-    <li class="drac-box-ternary">
-        <a href="../documentation_du_format_des_histoires_telmi/"
-            class="
-            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Documentation du format des histoires Telmi
+            Documentation du format des histoires
         </a>
     </li>
                     </ul>
@@ -294,13 +294,13 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../installation_manuelle_telmios_sur_linux/"
+                    <a href="../installation_manuelle_telmi_os_sur_windows/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../guide_du_developpeur_telmi-os/"
+                    <a href="../documentation_du_format_des_histoires/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
@@ -337,19 +337,60 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h1 id="installation-manuelle-de-telmios-sur-windows">Installation manuelle de TelmiOS sur Windows</h1>
-<p>Pour s'assurer du bon fonctionnement du logiciel, il faudra formater cette carte au format "FAT32" grâce au logiciel RUFUS (car Windows n'autorise pas le formatage FAT32 pour les carte supérieure à 32Go).</p>
-<ul>
-<li><a href="https://github.com/pbatard/rufus/releases/latest">Télécharger Rufus (rufus-x.xx.exe)</a></li>
-</ul>
-<p>Démarrer Rufus, séléctionner le carte SD. Enfin lancer le formatage en FAT32 avec les paramètres suivants :</p>
-<p><img alt="" src="../assets/img/rufus.png" /></p>
-<p>Bravo, vous avez une carte SD toute prête, il ne reste plus qu'à copier les répertoires et fichiers de TelmiOS dessus !</p>
-<p>La dernière version est disponible <a href="https://github.com/DantSu/Telmi-story-teller/releases/latest">ICI</a>, récupérez le fichier ZIP complet, et copier son contenu sur la carte SD.</p>
+        <p><h1 id="guide-du-developpeur-telmi-os">Guide du developpeur Telmi OS</h1>
 <blockquote>
-<p>L'autorun de Rufus doit être écrasé par celui de Telmi.</p>
-<p>Assurez-vous bien que les repertoires et fichiers cachés soient bien copiés (<code>.tmp_update, etc ...</code>)</p>
-</blockquote></p>
+<p>Cette page tente de regrouper des informations sur ce logiciel pour éventuellement contribuer à son développement, favoriser son portage sur d'autres plateformes ...</p>
+</blockquote>
+<h2 id="description">Description</h2>
+<p><strong>Telmi OS</strong>, ou <strong>Telmi Story Teller</strong> a été conçu pour remplacer l'OS des consoles de retro-gaming Miyoo mini et Miyoo mini plus, fonctionnant sous Linux (<a href="https://github.com/OnionUI/Onion">OnionOS</a>  ) 
+  TelmiOS est écrit en C par DantSu sous licence GPLv3, son code est disponible <a href="https://github.com/DantSu/Telmi-story-teller/tree/main/src/storyTeller">ici</a>.</p>
+<p>Il se compose de 3 parties principales:</p>
+<ul>
+<li><strong>Le lecteur:</strong></li>
+</ul>
+<p>StoryTeller utilise Libmpg123.so.0 une libraire compatible SDL2 pour lire les mp3
+   voir src/storyTeller/<a href="https://github.com/DantSu/Telmi-story-teller/blob/main/src/storyTeller/music_player.h">music_player.h</a>
+ * <strong>La sélection des histoires:</strong></p>
+<p>Voir src/storyTeller/<a href="https://github.com/DantSu/Telmi-story-teller/blob/main/src/storyTeller/app_selector.h">app_selector.h</a></p>
+<ul>
+<li><strong>Le format Studio et Telmi:</strong> 
+ La gestion des formats d'histoires interactives ( inventaires, etc..).</li>
+</ul>
+<p>La partie du code peut être la plus importante, la lecture du fichier Json de l'histoire et la gestion du déroulé de celle-ci..</p>
+<p>Voir src/storyTeller/<a href="https://github.com/DantSu/Telmi-story-teller/blob/main/src/storyTeller/stories_reader.h">stories_reader.h</a></p>
+<p>Voir aussi <a href="telmi_story_format.md">cette documentation </a> (générée par IA)</p>
+<h2 id="architecture-miyoo-onion-os">Architecture Miyoo/ Onion OS</h2>
+<p>La Miyoo mini est basée sur l'architecture <strong>ARMv7</strong> ( 32bits)</p>
+<p>L'affichage est géré par la bibliothèque SDL (v2) </p>
+<p>WIP</p>
+<h2 id="developpement">Développement</h2>
+<p>Pour toute question concernant le développement de Telmi et de Story Teller, vous êtes bienvenus sur le canal dédié "développement" du <a href="https://discord.gg/ZTA5FyERbg">serveur Discord</a>! </p>
+<h3 id="lancer-une-session-ssh">Lancer une session SSH</h3>
+<p>Installation d'un serveur dropbear pour copier et envoyer des fichiers sur la Miyoo en utilisant la connexion wifi ( permet de gagner du temps en évitant de sortir et rentrer la carte Sd a chaque version).</p>
+<p>WIP</p>
+<h3 id="compilation-pour-la-miyoo">Compilation pour la Miyoo</h3>
+<p>Voir <a href="https://github.com/DantSu/Telmi-story-teller/blob/main/Makefile">Makefile</a></p>
+<ul>
+<li>Pour faire un build de test</li>
+</ul>
+<p>Tout devrai être automatique:</p>
+<pre><code>make with-toolchain CMD=build
+</code></pre>
+<ul>
+<li>Pour créer une nouvelle release avec le .zip et le -update.zip :</li>
+</ul>
+<p><em>(Penser a supprimer les répertoires : build, cache, release)</em></p>
+<pre><code>make with-toolchain CMD=release
+</code></pre>
+<p>Les fichiers zip seront enregistrés dans /release</p>
+<h3 id="toolchain">Toolchain</h3>
+<p>Normalement, <strong>vous n'aurez pas à vous en soucier</strong>, le Makefile télécharge automatiquement les outils et lance docker.</p>
+<p>La toolchain conseillée pour la compilation est la "miyoo mini toolchain": 
+Son nom interne est "arm-linux-gnueabihf" donc compatible ArmHF</p>
+<pre><code>TOOLCHAIN := aemiii91/miyoomini-toolchain:latest
+</code></pre>
+<p>Une toolchain est aussi disponible ici https://github.com/shauninman/union-miyoomini-toolchain</p>
+<p><a href="https://onionui.github.io/docs/dev/setup">Une procédure est également disponible dans la documentation OnionOS</a></p></p>
     </article>
 </section>
             <!-- endblock -->
