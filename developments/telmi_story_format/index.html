@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Documentation du format des histoires telmi - Telmi Wiki</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+            <img class="logo" src="../../assets/img/telmi-wiki.png" height="150px">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Telmi Wiki</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    ✨ Accueil
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🛍️-stores-collapse" aria-expanded="false">
+                    🛍️ Stores
+                </a>
+                <div class="collapse" id="🛍️-stores-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../stores/stores_internationaux/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Stores internationaux
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../stores/stores_prives/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Stores privés
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../stores/creer_son_store_telmi/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Créer son Store Telmi
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../stores/heberger_son_store_telmi/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Héberger son Store Telmi
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#💳-achats-collapse" aria-expanded="false">
+                    💳 Achats
+                </a>
+                <div class="collapse" id="💳-achats-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../achats/miyoo_mini_plus/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Miyoo Mini Plus
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../achats/carte_micro_sd/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Carte Micro SD
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🎭-cultures-collapse" aria-expanded="false">
+                    🎭 Cultures
+                </a>
+                <div class="collapse" id="🎭-cultures-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../wip/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Page en construction
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🪄-créations-collapse" aria-expanded="false">
+                    🪄 Créations
+                </a>
+                <div class="collapse" id="🪄-créations-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../creations/charte_graphique_telmi/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Charte graphique Telmi
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../creations/images_de_chapitre/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Images de chapitre
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🪛-bricolages-collapse" aria-expanded="false">
+                    🪛 Bricolages
+                </a>
+                <div class="collapse" id="🪛-bricolages-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../bricolages/details_techniques_de_la_miyoo_mini_plus/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Détails techniques de la Miyoo Mini Plus
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#🚀-developments-collapse" aria-expanded="false">
+                    🚀 Developments
+                </a>
+                <div class="collapse" id="🚀-developments-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../astuces_telmi_sync/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Astuces Telmi-Sync
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../installation_manuelle_telmios_sur_linux/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Installation manuelle TelmiOS sur Linux
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../installation_manuelle_telmios_sur_windows/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Installation manuelle TelmiOS sur Windows
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../devel_story_teller/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Guide du developpeur Telmi-OS
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Documentation du format des histoires telmi
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../devel_story_teller/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="documentation-generee-par-ia-pour-faire-des-histoires-interactives-compatible-studio-de-telmi-sync">Documentation générée par IA pour faire des histoires interactives compatible Studio de Telmi-Sync</h1>
+<h1 id="telmi-story">Telmi Story</h1>
+<h2 id="telmi-story-format">Telmi Story Format</h2>
+<h3 id="folder-structure">Folder Structure</h3>
+<pre><code>/metadata.json
+/nodes.json
+/notes.json (Optional)
+/title.mp3
+/title.png
+/cover.png (Optional)
+/audios/s0.mp3
+/audios/s1.mp3
+/audios/s2.mp3
+...
+/images/s1.png
+/images/s3.png
+...
+</code></pre>
+<h3 id="file-metadatajson">File: /metadata.json</h3>
+<p>JSON file containing the story metadata such as title, description, age, etc.</p>
+<pre><code class="language-json">{
+  &quot;title&quot;: &quot;The title of the story&quot;, // Text
+  &quot;uuid&quot;: &quot;ffffff-199f066d199&quot;, // Text, unique identifier of the story
+  &quot;image&quot;: &quot;title.png&quot;, // Enum, possible values: [ title.png, cover.png ]
+  &quot;version&quot;: 2, // Integer, story version (optional property)
+  &quot;category&quot;: &quot;The category in which it is classified&quot;, // Text (optional property)
+  &quot;description&quot;: &quot;The description of my story.&quot;, // Text (optional property)
+  &quot;age&quot;: &quot;5&quot; // Integer, recommended age for the story (optional property)
+}
+</code></pre>
+<h3 id="file-nodesjson">File: /nodes.json</h3>
+<p>JSON file containing all the nodes that define the behavior of the game.</p>
+<p>The game starts with 'startAction'. Then, an action leads to one or more scenes.<br />
+If multiple scenes are in the action and the currently playing scene does not have <code>control.autoplay</code> set to true, the user can switch between scenes in the current action.<br />
+If <code>control.autoplay</code> of the current scene is true, the left/right buttons are disabled, and the next action will be triggered at the end of the current audio playback or when pressing the A, B, X, or Y buttons according to the values of <code>control.home</code> and <code>control.ok</code>.</p>
+<pre><code class="language-json">{
+  &quot;startAction&quot;: { // Contains the first action executed when the game starts
+    &quot;action&quot;: &quot;a0&quot;, // Text, action key
+    &quot;index&quot;: 0 // Integer, index of the scene in the action selected by default, if `index` equals -1 then the scene is randomly selected
+  },
+  &quot;inventory&quot;: [ // If there are no inventory items, the `inventory` property must be omitted (optional property)
+    {
+      &quot;name&quot;: &quot;My Item 1&quot;, // Text, item name
+      &quot;initialNumber&quot;: 0, // Integer, number of items at the start of the game
+      &quot;maxNumber&quot;: 3, // Integer, maximum number of items the player can obtain
+      &quot;display&quot;: 0, // Enum (integer), possible values: [ 0 (display image and item count), 1 (display image and item gauge), 2 (item not displayed) ]
+      &quot;image&quot;: &quot;i0.png&quot; // Text, PNG image filename (128x128px) of the item located in /images
+    },
+    ...
+  ],
+  &quot;stages&quot;: { // Object containing all story scenes
+    &quot;s1&quot;: { // A scene contains the image and audio played during its display and the behavior executed at the end of the audio or when the player presses A, B, X, or Y.
+      &quot;image&quot;: &quot;s1.png&quot;, // Text or null, PNG image filename (640x480px) located in /images
+      &quot;audio&quot;: &quot;s1.mp3&quot;, // Text or null, MP3 audio filename located in /audios
+      &quot;ok&quot;: { // Action executed when the player presses A or B if `control.ok` is true, or when the audio ends if `control.autoplay` is true
+        &quot;action&quot;: &quot;a6&quot;, // Text, action key
+        &quot;index&quot;: 0 // Integer, index of the scene in the selected action, if `index` equals -1 then the scene is randomly selected
+      },
+      &quot;home&quot;: { // Action executed when the player presses X or Y if `control.home` is true
+        &quot;action&quot;: &quot;a3&quot;, // Text, action key
+        &quot;index&quot;: 0 // Integer, index of the scene in the selected action, if `index` equals -1 then the scene is randomly selected
+      },
+      &quot;control&quot;: { // Object containing behavior permissions
+        &quot;ok&quot;: true, // Boolean, if true the action in ok will be executed when the player presses A or B, if false nothing happens
+        &quot;home&quot;: true, // Boolean, if true the action in home will be executed when the player presses X or Y, if false nothing happens
+        &quot;autoplay&quot;: false // Boolean, if true the action in ok will be executed at the end of the MP3 playback defined in audio, if audio is null then the ok action is executed immediately
+      },
+      &quot;items&quot;: [ // Contains updates to the player's inventory. If no updates are needed, the items property must be omitted (optional property)
+        {
+          &quot;type&quot;: 0, // Enum integer, assignment operator (equal, add, subtract, multiply...), possible values: [ 0:'+=' (adds `number` items), 1:'-=' (removes `number` items), 2:'=' (sets inventory to `number` items), 3:'*=' (multiplies by `number`), 4:'/=' (divides by `number`), 5:'%=' (sets inventory to modulo `number`) ]
+          &quot;item&quot;: 0, // Integer, index of the inventory item affected
+          &quot;number&quot;: 2 // Integer, value to assign
+        },
+        {
+          &quot;type&quot;: 2, // Same as above
+          &quot;item&quot;: 1, // Integer, index of the affected inventory item
+          &quot;assignItem&quot;: 0 // Integer, index of the inventory item whose value is assigned to `item`
+        },
+        {
+          &quot;type&quot;: 3, // Same as above
+          &quot;item&quot;: 2, // Integer, index of the affected inventory item
+          &quot;playingTime&quot;: true // If defined and true, the assigned value will be the elapsed playtime in seconds
+        },
+        ...
+      ],
+      &quot;inventoryReset&quot;: true // If the `inventoryReset` property exists and is set to true, all items in the inventory are reset to their default values (optional property, omit if not used)
+    },
+    ...
+  },
+  &quot;actions&quot;: { // Lists all game actions. An action is a list of scenes that can contain display conditions
+    &quot;a1&quot;: [ // Action containing a list of scenes to play
+      {
+        &quot;stage&quot;: &quot;s2&quot;, // Text, key of the scene to play
+        &quot;conditions&quot;: [ // If there are no display conditions, the `conditions` property must be omitted (optional property)
+          {
+            &quot;comparator&quot;: 2, // Enum integer, comparison operator, possible values: [ 0:'&lt;', 1:'&lt;=', 2:'==', 3:'&gt;', 4:'&gt;=', 5:'!=' ]
+            &quot;item&quot;: 0, // Integer, index of the inventory item whose value is used on the left side of the comparison
+            &quot;number&quot;: 2 // Integer, value on the right side of the comparison
+          },
+          {
+            &quot;comparator&quot;: 1, // Enum integer, comparison operator, possible values: [ 0:'&lt;', 1:'&lt;=', 2:'==', 3:'&gt;', 4:'&gt;=', 5:'!=' ]
+            &quot;item&quot;: 0, // Integer, index of the inventory item whose value is used on the left side of the comparison
+            &quot;compareItem&quot;: 1 // Integer, index of the inventory item whose value is used on the right side of the comparison
+          },
+          ...
+        ]
+      },
+      ...
+    ],
+    ...
+  }
+}
+</code></pre>
+<h3 id="file-notesjson-optional-file">File: /notes.json (Optional file)</h3>
+<p>JSON file containing the title, text, and color of each story scene.<br />
+This file is only used by the Telmi Sync Studio and does not affect the game in Telmi OS.</p>
+<pre><code class="language-json">{
+  &quot;Scene key&quot;: {
+    &quot;title&quot;: &quot;Scene title&quot;, // Text, title displayed on scenes in the Telmi Sync diagram
+    &quot;notes&quot;: &quot;Scene text&quot;, // Text, contains the story and can optionally be read by Telmi Sync TTS upon request
+    &quot;color&quot;: &quot;red2&quot; // Enum (optional property), scene color in Telmi Sync diagram, possible values: [ pink, pink2, purple3, purple4, purple5, yellow, orange2, orange3, red, red2, brown, green, green2, green3, green4, blue, blue2, blue3, blue4 ]
+  },
+  ...
+}
+</code></pre>
+<h3 id="file-titlepng">File: /title.png</h3>
+<p>PNG image used as the story title in Telmi OS.</p>
+<h3 id="file-titlemp3">File: /title.mp3</h3>
+<p>Audio file containing the story title in MP3 format, 44100 Hz, constant bitrate between 64 and 192 kbps.</p>
+<h3 id="file-coverpng-optional-file">File: /cover.png (Optional file)</h3>
+<p>PNG cover image used in Telmi Sync.</p>
+<h3 id="folder-audios">Folder: /audios/</h3>
+<p>Contains scene audio files in MP3 format, 44100 Hz, constant bitrate between 64 and 192 kbps.</p>
+<h3 id="folder-images">Folder: /images/</h3>
+<p>Contains PNG image files for scenes and inventory items.</p>
+<h2 id="how-to-make-an-interactive-story">How to make an interactive story</h2>
+<h3 id="general-principle">General Principle</h3>
+<p>A Telmi interactive story is composed of <strong>repeating narrative phases</strong>.<br />
+Each phase follows a fixed structure:</p>
+<ol>
+<li>A <strong>main narrative scene</strong> (the phase introduction)</li>
+<li>Several <strong>choice scenes</strong> (2 to 5 options)</li>
+<li>Several <strong>consequence scenes</strong> (depending on the chosen option)</li>
+</ol>
+<p>This pattern repeats until the end of the story.</p>
+<h3 id="scene-types">Scene Types</h3>
+<h4 id="main-narrative-scene">Main Narrative Scene</h4>
+<ul>
+<li><strong>Content:</strong> Around 500–800 words  </li>
+<li><strong>Purpose:</strong> Introduces the story context or the new phase  </li>
+<li><strong>Control properties:</strong>
+  <code>json
+  "control": {
+    "ok": true,
+    "home": true,
+    "autoplay": true
+  }</code></li>
+<li><strong><code>ok</code> action:</strong> Leads to an action containing 2–5 choice scenes</li>
+</ul>
+<h4 id="choice-scenes">Choice Scenes</h4>
+<ul>
+<li><strong>Content:</strong> A very short question, e.g., “Look under the bed?”  </li>
+<li><strong>Count:</strong> Between 2 and 5 per phase  </li>
+<li><strong>Control properties:</strong>
+  <code>json
+  "control": {
+    "ok": true,
+    "home": true,
+    "autoplay": false
+  }</code></li>
+<li><strong><code>ok</code> action:</strong> Leads to one or more consequence scenes</li>
+</ul>
+<h4 id="consequence-scenes">Consequence Scenes</h4>
+<ul>
+<li><strong>Content:</strong> Around 300–500 words  </li>
+<li><strong>Purpose:</strong> Explains the results of the player’s previous choice  </li>
+<li><strong>Selection:</strong> Only one consequence scene is played, based on inventory conditions  </li>
+<li><strong>Control properties:</strong>
+  <code>json
+  "control": {
+    "ok": true,
+    "home": true,
+    "autoplay": true
+  }</code></li>
+<li><strong>Effects:</strong> May update the player’s inventory (<code>items</code>)  </li>
+<li><strong><code>ok</code> action:</strong> Leads to the next <strong>main narrative scene</strong></li>
+</ul>
+<h3 id="inventory">Inventory</h3>
+<ul>
+<li>The inventory is optional.  </li>
+<li>It can be used to:</li>
+<li>Determine which consequence scene is played (via conditions)  </li>
+<li>Update the player's state after certain scenes  </li>
+<li>If no inventory is needed, the <code>inventory</code> property must be omitted.</li>
+</ul>
+<h3 id="base-structure-nodesjson">Base Structure (<code>nodes.json</code>)</h3>
+<h4 id="empty-template">Empty template:</h4>
+<pre><code class="language-json">{
+  &quot;startAction&quot;: {
+    &quot;action&quot;: &quot;a0&quot;,
+    &quot;index&quot;: 0
+  },
+  &quot;inventory&quot;: [],
+  &quot;stages&quot;: {
+    &quot;s0&quot;: {
+      &quot;image&quot;: null,
+      &quot;audio&quot;: null,
+      &quot;ok&quot;: null,
+      &quot;home&quot;: {
+        &quot;action&quot;: &quot;backAction&quot;,
+        &quot;index&quot;: 0
+      },
+      &quot;control&quot;: {
+        &quot;ok&quot;: true,
+        &quot;home&quot;: true,
+        &quot;autoplay&quot;: true
+      }
+    },
+    &quot;backStage&quot;: {
+      &quot;image&quot;: null,
+      &quot;audio&quot;: null,
+      &quot;ok&quot;: {
+        &quot;action&quot;: &quot;backChildAction&quot;,
+        &quot;index&quot;: 0
+      },
+      &quot;home&quot;: {
+        &quot;action&quot;: &quot;backAction&quot;,
+        &quot;index&quot;: 0
+      },
+      &quot;control&quot;: {
+        &quot;ok&quot;: true,
+        &quot;home&quot;: false,
+        &quot;autoplay&quot;: true
+      }
+    }
+  },
+  &quot;actions&quot;: {
+    &quot;a0&quot;: [{&quot;stage&quot;: &quot;s0&quot;}],
+    &quot;backAction&quot;: [{&quot;stage&quot;: &quot;backStage&quot;}],
+    &quot;backChildAction&quot;: []
+  }
+}
+</code></pre>
+<h3 id="universal-rules">Universal Rules</h3>
+<h4 id="home-property-must-have-backaction-action"><code>home</code> property must have <code>backAction</code> action</h4>
+<p>Every scene in the story must include the following property:</p>
+<pre><code class="language-json">&quot;home&quot;: {&quot;action&quot;: &quot;backAction&quot;, &quot;index&quot;: 0}
+</code></pre>
+<p>This ensures that the player always experiences the same behavior when pressing the back button (X or Y).</p>
+<h4 id="all-ok-properties-must-have-a-unique-action">All <code>ok</code> properties must have a unique action</h4>
+<p>In every scene of the story, the <code>ok</code> property must always point to a different action.</p>
+<p>Example:</p>
+<pre><code class="language-json">{
+  ...
+  &quot;stages&quot;: {
+    ...
+    &quot;s21&quot;: {
+      ...
+      &quot;ok&quot;: {
+        &quot;action&quot;: &quot;a21&quot;,
+        &quot;index&quot;: 0
+      },
+      ...
+    },
+    &quot;s22&quot;: {
+      ...
+      &quot;ok&quot;: {
+        &quot;action&quot;: &quot;a22&quot;,
+        &quot;index&quot;: 0
+      },
+      ...
+    }
+  },
+  &quot;actions&quot;: {
+    ...
+    &quot;a21&quot;: [{&quot;stage&quot;: &quot;s3&quot;}],
+    &quot;a22&quot;: [{&quot;stage&quot;: &quot;s3&quot;}],
+    ...
+  }
+}
+</code></pre>
+<p>In this case, even though <code>a21</code> and <code>a22</code> have identical behavior, they are duplicated so that scenes <code>s21</code> and <code>s22</code> each have their own unique action.</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../..';</script>
+        <script src="../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../assets/js/mkdocs.js"></script>
+			<script src="../../search/main.js" defer></script>
+
+</body>
+
+</html>
