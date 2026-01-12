@@ -24,6 +24,8 @@ nav:
       - Astuces Telmi-Sync : developments/astuces_telmi_sync.md
       - Installation manuelle TelmiOS sur Linux : developments/installation_manuelle_telmios_sur_linux.md
       - Installation manuelle TelmiOS sur Windows : developments/installation_manuelle_telmios_sur_windows.md
+      - Guide du developpeur Telmi-OS : developments/devel_story_teller.md
+      - Documentation du format des histoires telmi : developments/telmi_story_format.md
 
 theme:
   name: dracula
