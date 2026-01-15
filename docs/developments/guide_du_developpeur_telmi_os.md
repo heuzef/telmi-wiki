@@ -12,6 +12,7 @@
  
    StoryTeller utilise Libmpg123.so.0 une libraire compatible SDL2 pour lire les mp3
    voir src/storyTeller/[music_player.h](https://github.com/DantSu/Telmi-story-teller/blob/main/src/storyTeller/music_player.h)
+   
  * **La sélection des histoires:**
  
    Voir src/storyTeller/[app_selector.h](https://github.com/DantSu/Telmi-story-teller/blob/main/src/storyTeller/app_selector.h)
