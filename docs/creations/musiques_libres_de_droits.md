@@ -10,7 +10,7 @@ N'hésitez pas à contribuer pour actualiser cette liste pour aider les autres c
 
 - [Unminus](https://www.unminus.com)
 - [Bensound](https://www.bensound.com/royalty-free-music)
-- [Musopen](https://musopen.or)
+- [Musopen](https://musopen.org)
 - [BBC Sound Effects](https://sound-effects.bbcrewind.co.uk)
 - [Newgrounds](https://www.newgrounds.com/audio)
 - [Jamendo](https://www.jamendo.com/?language=fr)
