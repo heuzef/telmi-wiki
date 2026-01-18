@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>Installation manuelle Telmi OS sur Linux - Telmi Wiki</title>
+        <title>Musiques libres de droits - Telmi Wiki</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -168,7 +168,7 @@
             </li>
             <li class="drac-box">
                 <a href="../.."
-                    class="
+                    class=" active 
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#🪄-créations-collapse" aria-expanded="false">
                     🪄 Créations
@@ -177,7 +177,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../../creations/charte_graphique_telmi/"
+        <a href="../charte_graphique_telmi/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Charte graphique Telmi
@@ -185,15 +185,15 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../../creations/musiques_libres_de_droits/"
-            class="
+        <a href="./"
+            class=" active 
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Musiques libres de droits
         </a>
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../../creations/images_de_chapitre/"
+        <a href="../images_de_chapitre/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Images de chapitre
@@ -224,7 +224,7 @@
             </li>
             <li class="drac-box">
                 <a href="../.."
-                    class=" active 
+                    class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#🚀-developments-collapse" aria-expanded="false">
                     🚀 Developments
@@ -233,7 +233,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../astuces_telmi_sync/"
+        <a href="../../developments/astuces_telmi_sync/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Astuces Telmi-Sync
@@ -241,15 +241,15 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
+        <a href="../../developments/installation_manuelle_telmi_os_sur_linux/"
+            class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Installation manuelle Telmi OS sur Linux
         </a>
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../installation_manuelle_telmi_os_sur_windows/"
+        <a href="../../developments/installation_manuelle_telmi_os_sur_windows/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Installation manuelle Telmi OS sur Windows
@@ -257,7 +257,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../guide_du_developpeur_telmi_os/"
+        <a href="../../developments/guide_du_developpeur_telmi_os/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Guide du developpeur Telmi OS
@@ -265,7 +265,7 @@
     </li>
                             
     <li class="drac-box-ternary">
-        <a href="../documentation_du_format_des_histoires/"
+        <a href="../../developments/documentation_du_format_des_histoires/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             Documentation du format des histoires
@@ -302,13 +302,13 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../astuces_telmi_sync/"
+                    <a href="../charte_graphique_telmi/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../installation_manuelle_telmi_os_sur_windows/"
+                    <a href="../images_de_chapitre/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
@@ -345,34 +345,28 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h1 id="installation-manuelle-de-telmios-sur-linux">Installation manuelle de TelmiOS sur Linux</h1>
-<p>Pour s'assurer du bon fonctionnement du logiciel, il faudra formater cette carte au format "FAT32".</p>
-<p>Lancer un terminal puis afficher la liste des disques et leur partitions :</p>
-<pre><code>fdisk -l
-</code></pre>
-<p>Identifiez la carte SD et sa ou ses partitions (quelque chose comme <code>/dev/sdX</code>, mais attention <strong>soyez certain de bien repérer votre carte SD avant d'aller plus loin !</strong>).</p>
-<p>Démontez la ou les partitions avant de faire les prochaines actions de modification :</p>
-<pre><code>unmount /dev/sdX
-</code></pre>
-<p>On peut partitionner le disque en utilisant fdisk, bien suivre les indications et ne confirmer <strong>que si vous êtes sur(e)s de vous</strong></p>
-<pre><code>fdisk /dev/sdX
-# Puis choix n ; p ; 1 ; t ; b ; w
-</code></pre>
-<p>Maintenant il faut formater la partition créé :</p>
-<pre><code>mkfs.fat -F32 -n &quot;Telmi&quot; /dev/sdX
-</code></pre>
-<blockquote>
-<p>Le script de formatage intégré à TelmiSync, pour Linux, réalise justement le formatage en FAT32 avec la commande <code>mkfs.fat -F32 -n "$volumeName" "$device"</code>.</p>
-</blockquote>
-<p>Bravo, vous avez une carte SD toute prête, il ne reste plus qu'à copier les répertoires et fichiers de TelmiOS dessus !</p>
-<p>La dernière version est disponible <a href="https://github.com/DantSu/Telmi-story-teller/releases/latest">ICI</a>, récupérez le fichier ZIP complet, et copier son contenu sur la carte SD.</p>
-<pre><code>wget https://github.com/DantSu/Telmi-story-teller/releases/download/X.X.X/TelmiOS_vX.X.X.zip
-unzip TelmiOS_vX.X.X.zip -d /dev/sdX/
-ls -a /dev/sdX/
-</code></pre>
-<blockquote>
-<p>Assurez-vous bien que les repertoires et fichiers cachés soient bien copiés (<code>.tmp_update, etc ...</code>)</p>
-</blockquote></p>
+        <p><h1 id="musiques-libres-de-droits-et-effets-sonores">Musiques libres de droits et effets sonores</h1>
+<p>Si vous cherchez des musiques sympas pour mettre un fond sonore sur vos créations, optez pour les musiques libres de droit ou sous licence Creative Commons. </p>
+<p>Voici une sélection de sites où vous pourrez trouver ce genre de morceaux. La plupart sont gratuits. Faites donc bien attention aux licences.</p>
+<p>N'hésitez pas à contribuer pour actualiser cette liste pour aider les autres créateurs.</p>
+<h2 id="sites-de-musique-et-effets-sonores-libres-de-droits">Sites de musique et effets sonores libres de droits</h2>
+<ul>
+<li><a href="https://www.unminus.com">Unminus</a></li>
+<li><a href="https://www.bensound.com/royalty-free-music">Bensound</a></li>
+<li><a href="https://musopen.or">Musopen</a></li>
+<li><a href="https://sound-effects.bbcrewind.co.uk">BBC Sound Effects</a></li>
+<li><a href="https://www.newgrounds.com/audio">Newgrounds</a></li>
+<li><a href="https://www.jamendo.com/?language=fr">Jamendo</a></li>
+<li><a href="https://incompetech.com/music/royalty-free/music.html">Incompetech</a></li>
+<li><a href="https://freemusicarchive.org">Free Music Archive</a></li>
+<li><a href="https://freesound.org/">Freesound</a></li>
+<li><a href="https://free-loops.com">Free-Loops</a></li>
+<li><a href="https://ektoplazm.com/section/free-music">Ektoplazm</a></li>
+<li><a href="http://www.dramacore.com/mp3.html">Dramacore</a></li>
+<li><a href="https://dogmazic.net/">Dogmazic</a></li>
+<li><a href="https://ccmixter.org/view/media/samples">ccMixter</a></li>
+<li><a href="https://www.auboutdufil.com">Au bout du fil</a></li>
+</ul></p>
     </article>
 </section>
             <!-- endblock -->
