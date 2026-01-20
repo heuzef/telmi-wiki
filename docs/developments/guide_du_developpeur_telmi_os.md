@@ -1,6 +1,9 @@
 # Guide du developpeur Telmi OS
 
-> Cette page tente de regrouper des informations sur ce logiciel pour éventuellement contribuer à son développement, favoriser son portage sur d'autres plateformes ...
+Cette page est un point de depart pour contribuer au développement de Telmi Os.
+Une documentation et des aides pour le portage sur d'autres plateformes sont en cours.. WIP
+
+> Pour toute question concernant le développement de Telmi et de Story Teller, vous êtes bienvenus sur le canal dédié "développement" du [serveur Discord](https://discord.gg/ZTA5FyERbg)! 
 
 ## Description 
   **Telmi OS**, ou **Telmi Story Teller** a été conçu pour remplacer l'OS des consoles de retro-gaming Miyoo mini et Miyoo mini plus, fonctionnant sous Linux ([OnionOS](https://github.com/OnionUI/Onion)  ) 
@@ -36,7 +39,7 @@ L'affichage est géré par la bibliothèque SDL (v2)
 WIP
 
 ## Développement
-Pour toute question concernant le développement de Telmi et de Story Teller, vous êtes bienvenus sur le canal dédié "développement" du [serveur Discord](https://discord.gg/ZTA5FyERbg)! 
+
 ### Lancer une session SSH
 
 Installation d'un serveur dropbear pour copier et envoyer des fichiers sur la Miyoo en utilisant la connexion wifi ( permet de gagner du temps en évitant de sortir et rentrer la carte Sd a chaque version).
