@@ -353,7 +353,20 @@
 <li>Linux : <code>~/.telmi</code></li>
 <li>MacOS : <code>~/.telmi</code> (Pour afficher les fichiers cachés sous mac, utiliser le raccourci clavier Majuscule + Command + Point : <code>⇧⌘.</code>)</li>
 <li>Windows : <code>C:\Users\&lt;username&gt;\.telmi</code></li>
-</ul></p>
+</ul>
+<h2 id="comment-deplacer-le-dossier-contenant-les-histoires-vers-un-autre-dossier-ou-disque-dur">Comment déplacer le dossier contenant les histoires vers un autre dossier ou disque dur ?</h2>
+<h3 id="windows">Windows:</h3>
+<ol>
+<li>Couper et coller le dossier C:\Users[TON_UTILISATEUR].telmi\stories vers le disque ou répertoire que vous souhaitez.</li>
+<li>Ouvrez un terminal de commande en ADMINISTRATEUR puis exécutez la commande suivante : </li>
+<li><code>MKLINK /D "C:\Users\[TON_UTILISATEUR]\.telmi\stories" "D:\PATH\VERS\LE\NOUVEL\EMPLACEMENT\DE\STORIES"</code></li>
+</ol>
+<h3 id="linux-ou-mac">Linux ou Mac:</h3>
+<ol>
+<li>Créer le répertoire cible, c'est-à-dire l'endroit où l'on veut stocker les données de TelmiSync, par exemple dans <code>/VOLUMES/foo/telmisync</code>. Y copier éventuellement l'intégralité du contenu du dossier d'origine <code>.telmi</code>, pour ne pas perdre les données existantes (p.ex. histoires déjà téléchargées ou paramètres de TelmiSync).</li>
+<li>Supprimer le dossier d'origine, par exemple <code>/Users/iko/.telmi</code></li>
+<li>Dans un terminal, créer un lien symbolique avec cette commande : <code>ln -s /VOLUMES/foo/telmisync /Users/iko/.telmi</code></li>
+</ol></p>
     </article>
 </section>
             <!-- endblock -->
