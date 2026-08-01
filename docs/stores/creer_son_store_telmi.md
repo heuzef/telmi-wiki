@@ -1,5 +1,7 @@
 # Créer son store Telmi
 
+> Attention, cette procédure doit être mis à jour, le serivce Deno ne propose malheureusement plus de fonction de syncrhonisation périodique (CRON).
+
 Cette documentation explique en détail comment mettre en production son store Telmi pour héberger des packs d'histoire.
 
 Elle s'adresse donc à vous si :
