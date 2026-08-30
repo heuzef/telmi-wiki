@@ -1,7 +1,5 @@
 # Créer son store Telmi
 
-> Attention, cette procédure doit être mis à jour, le serivce Deno ne propose malheureusement plus de fonction de syncrhonisation périodique (CRON).
-
 Cette documentation explique en détail comment mettre en production son store Telmi pour héberger des packs d'histoire.
 
 Elle s'adresse donc à vous si :
@@ -13,7 +11,9 @@ Vous êtes partant ? Super ! N'hésitez pas à demander de l'aide à la communau
 
 ## Structure d'un store Telmi
 
-Un store Telmi est basiquement un fichier JSON qui est appelé sur le logiciel Telmi-Sync, ce dernier contient toutes les informations des packs d'histoire. Il est resynchronisé à chaque lancement du logiciel. Votre rôle est donc de faire en sorte que ce fichier JSON soit régulièrement mis à jour et publiquement accessible. Pour cela, deux services sont donc exploités : Github et Deno. Github héberge les histoires, les informations et met à disposition le fichier JSON du store. Deno de son côté, sert uniquement à déclencher la mise à jour quotidienne du fichier JSON.
+Un store Telmi est basiquement un fichier JSON qui est appelé sur le logiciel Telmi-Sync, ce dernier contient toutes les informations des packs d'histoire. Il est resynchronisé à chaque lancement du logiciel. Votre rôle est donc de faire en sorte que ce fichier JSON soit régulièrement mis à jour et publiquement accessible. Pour cela, un seul service est exploité : Github. Il héberge les histoires et leurs informations, met à disposition le fichier JSON du store via GIST, et exécute quotidiennement, grâce à Github Actions, le script qui régénère ce fichier.
+
+> Cette procédure reposait auparavant sur le service Deno, qui ne propose plus de fonction de synchronisation périodique (CRON).
 
 ## Notre store exemple
 
@@ -49,7 +49,7 @@ Ajoutez ce dernier en accès public.
 
 ![](assets/img/github_06.png)
 
-Ce store doit être initialisé avec quelques fichiers, dossier et surtout la bannière traduite dans votre langue. Pour faire ceci, reprenez la structure des dépôts existants, par exemple : 
+Ce store doit être initialisé avec quelques fichiers, dossier et surtout la bannière traduite dans votre langue. Ces archives contiennent également le mécanisme de synchronisation (`.github/workflows/sync-store.yml` et `.github/scripts/sync-store.mjs`), que nous configurerons plus loin. Pour faire ceci, reprenez la structure des dépôts existants, par exemple : 
 
 - [https://github.com/telmi-store/.github/archive/refs/heads/main.zip](https://github.com/telmi-store/.github/archive/refs/heads/main.zip)
 - [https://github.com/telmi-store-en/.github/archive/refs/heads/main.zip](https://github.com/telmi-store-en/.github/archive/refs/heads/main.zip)
@@ -113,7 +113,7 @@ Ainsi, le lien officiel de votre nouveau store sera donc structuré ainsi :
 
 Adaptez ce lien avec votre ID GIST et nom du fichier, vous devriez ainsi pouvoir consulter votre fichier JSON (qui ne contient qu'un point à ce stade). C'est également ce lien, que vous pourrez ajouter sur Telmi-Sync.
 
-C'est tout bon ? Super ! Nous allons pouvoir commencer la configuration de Deno, qui s'occupera de mettre à jour quotidiennement ce fichier JSON. 
+C'est tout bon ? Super ! Nous allons pouvoir configurer Github Actions, qui s'occupera de mettre à jour quotidiennement ce fichier JSON. 
 
 Mais avant cela, il faut lui donner l'autorisation de le faire, nous allons donc créer un Token d'accès dédié. Pour cela, accéder à la gestion de vos Tokens.
 
@@ -129,6 +129,8 @@ Donnez-lui un nom parlant, par exemple `telmi-store-gists` et surtout spécifiez
 
 Finalement, pour les permissions (Select scopes), spécifiez uniquement l'accès à **gist**.
 
+> Sachez qu'un token portant le scope `gist` donne accès en écriture à **tous les gists** de votre compte, y compris les gists secrets : il n'est pas possible de le restreindre à un seul gist. Si vous préférez, un *fine-grained token* limité à la permission de compte `Gists: read and write` fonctionne également, avec l'avantage de porter une date d'expiration explicite.
+
 ![](assets/img/gist_09.png)
 
 À la création, le Token apparaîtra en clair, **notez-le précieusement**, car vous n'aurez plus accès à ce dernier après. 
@@ -139,214 +141,116 @@ Votre token ressemble à ceci :
 
 **Ne partagez jamais ce dernier à qui que ce soit.**
 
-## Configuration du serveur de synchronisation Deno
+## Configuration de la synchronisation avec Github Actions
 
-Deno est un service open-source d'exécution de code Javascript. Nous allons exploiter ce dernier car il dispose d'une fonction [CRON](https://fr.wikipedia.org/wiki/Cron), ce qui nous sera fort utile pour exécuter quotidiennement un script TS qui va :
+[Github Actions](https://docs.github.com/actions) est le service d'automatisation intégré à Github. Nous allons l'exploiter car il dispose d'une fonction [CRON](https://fr.wikipedia.org/wiki/Cron), ce qui nous sera fort utile pour exécuter quotidiennement un script qui va :
 
 * Parser les différents dépôts de notre organisation sur Github
 * En extraire toutes les informations des packs d'histoire
 * Générer le fichier JSON de notre store
 * Pousser ce dernier sur GIST pour forcer son actualisation
 
-Vous pouvez donc [commencer par vous authentifier sur le site de Deno](https://console.deno.com/login) (avec votre compte Github).
+L'avantage par rapport à la précédente méthode est qu'il n'y a plus aucun service tiers à gérer : tout se passe dans le dépôt `.github` de votre organisation, et rien n'est à installer sur votre machine.
 
-![](assets/img/deno_01.png)
-
-Installez ensuite Deno sur votre machine : 
-
-``curl -fsSL https://deno.land/install.sh | sh``
-
-Puis finalement, installez également l'outil de gestion (CLI) qui nous servira à déployer notre projet :
+Deux fichiers, déjà présents dans les archives téléchargées plus haut, s'en chargent :
 
 ```
-deno install -gArf jsr:@deno/deployctl
-export PATH="/home/$USER/.deno/bin:$PATH" # Definir la variable PATH pour pouvoir executer deployctl
+.github
+├── scripts
+│   └── sync-store.mjs      # génère le JSON et le pousse sur le GIST
+└── workflows
+    └── sync-store.yml      # déclenche le script tous les jours
 ```
 
-Nous allons à présent initialiser le projet, voici à quoi doit ressembler votre dossier ce travail :
+### Enregistrer le Token
+
+Le Token créé à l'étape précédente ne doit **jamais** être écrit dans un fichier du dépôt : il serait alors visible publiquement, et Github le révoquerait automatiquement. Il se range dans les secrets du dépôt.
+
+Rendez-vous dans votre dépôt `.github`, puis **Settings** → **Secrets and variables** → **Actions** → **New repository secret**.
+
+* Name : `GIST_TOKEN`
+* Secret : votre Token
+
+> Attention à ne pas coller d'espace ni de retour à la ligne avec le Token, c'est l'erreur la plus fréquente. Elle se manifeste plus tard par un échec `Gist update failed: 401 Unauthorized`.
+
+Prenez bien soin de créer un secret **de dépôt** et non un secret d'organisation : un secret d'organisation rendu visible par tous les dépôts serait lisible depuis n'importe quel dépôt de pack d'histoire.
+
+### Adapter le script à votre store
+
+Ouvrez `.github/scripts/sync-store.mjs`, tout ce qui vous concerne tient dans le bloc de configuration en début de fichier :
 
 ```
-telmi-store-en
-└── src
-    └── main.ts
-```
-
-```
-mkdir telmi-store-en
-mkdir telmi-store-en/src
-touch telmi-store-en/src/main.ts
-```
-
-Créer votre fichier main.ts :
-
-```
-const
-strFormat = (str) => str.replace(/[^\u0020-\ucfbf\u000A]+/g, ' ').trim(),
-imageExists = (url) => {
-    return new Promise((resolve, reject) => {
-        fetch(url, { method: 'HEAD' })
-        .then((res) => {
-            if (res.status !== 200) {
-                return resolve(false)
-            }
-            resolve(true)
-        })
-        .catch(() => {
-            resolve(false)
-        })
-    })
-}
-
-
-Deno.serve(() => new Response('API d\'histoires', {
-    status: 200,
-    headers: { 'content-type': 'text/html; charset=utf-8' }
-}))
-
-const githubToTelmi = async (gist, filename, repoURI, banner, background, link) => {
-    let data = []
-
-    const repos = await (await fetch('https://api.github.com/orgs/' + repoURI + '/repos', { headers: { accept: 'application/json' } })).json()
-    for (const repo of repos) {
-        repo.thumbnail = 'https://raw.githubusercontent.com/' + repoURI + '/' + repo.name + '/main/thumbnail.jpg'
-        if (await imageExists(repo.thumbnail)) {
-            repo.releases = await (await fetch(repo.url + '/releases', { headers: { accept: 'application/json' } })).json()
-        } else {
-            repo.releases = []
-        }
+const config = {
+    org: 'telmi-store-en',
+    gistId: 'c2da96666a3a84397f19576d94d15a57',
+    gistFilename: 'telmi-interactive-en.json',
+    history: true,
+    banner: {
+        image: 'https://raw.githubusercontent.com/telmi-store-en/.github/main/profile/banner-telmi.jpg',
+        background: '#2e144b',
+        link: 'https://discord.gg/ZTA5FyERbg'
     }
-
-    data = repos.reduce(
-        (acc, repo) => {
-            if (!repo.releases.length || !repo.releases[0].assets.length) {
-                return acc
-            }
-
-            const title = [...repo.description.matchAll(/^\[([0-9]+)\+](.*)\(([A-Z]+)\)$/g)]
-
-            if (!title.length) {
-                return acc
-            }
-
-            const url = repo.releases[0].assets.reduce(
-                (acc, v) => {
-                    if (v.browser_download_url.substring(v.browser_download_url.length - 4) === '.zip') {
-                        return v.browser_download_url
-                    }
-                    return acc
-                },
-                ''
-            )
-
-            if (url === '') {
-                return acc
-            }
-
-            const downloadCount = repo.releases.reduce(
-                (acc, release) => release.assets.reduce((acc, v) => acc + v.download_count, acc),
-                                                       0
-            )
-
-            const details = repo.releases[0].body.replace('\r', '').split('\n').reduce(
-                (acc, line) => {
-                    if (line.substring(0, 1) !== '>') {
-                        acc.description = acc.description + '\n' + line
-                        return acc
-                    }
-                    const colonPos = line.indexOf(':', 1)
-                    if (colonPos === -1) {
-                        acc.description = acc.description + '\n' + line
-                        return acc
-                    }
-                    return {
-                        ...acc,
-                        [line.substring(1, colonPos).trim().toLowerCase()]: line.substring(colonPos + 1).trim()
-                    }
-                },
-                { description: '' }
-            )
-
-            return [
-                ...acc,
-                Object.assign({
-                    age: parseInt(strFormat(title[0][1]), 10),
-                              title: strFormat(title[0][2]),
-                              description: strFormat(details.description),
-                              thumbs: {
-                                  small: repo.thumbnail,
-                                  medium: repo.thumbnail
-                              },
-                              download: strFormat(url),
-                              download_count: downloadCount,
-                              awards: details.awards !== undefined ? details.awards.substring(1).split('#').map((v) => strFormat(v.trim())) : [],
-                              created_at: repo.releases[repo.releases.length - 1].published_at,
-                              updated_at: repo.releases[0].published_at
-                },
-                details.uuid !== undefined ? { uuid: details.uuid } : null,
-                details.author !== undefined ? { author: details.author } : null,
-                details.voice !== undefined ? { voice: details.voice } : null,
-                details.designer !== undefined ? { designer: details.designer } : null,
-                details.publisher !== undefined ? { publisher: details.publisher } : null,
-                details.category !== undefined ? { category: details.category } : null,
-                details.version !== undefined ? { version: details.version } : null,
-                details.license !== undefined ? { license: details.license } : null
-                )
-            ]
-        },
-        data
-    )
-
-    const
-    dateIso = (new Date()).toISOString().split('T'),
-    date = dateIso[0] + ' ' + dateIso[1].substring(0, 8)
-
-    await fetch(
-        'https://api.github.com/gists/' + gist,
-        {
-            method: 'PATCH',
-            headers: {
-                Authorization: 'Bearer github_pat_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', # Ajouter le Token ici
-                Accept: 'application/vnd.github+json',
-                'X-GitHub-Api-Version': '2022-11-28',
-            },
-            body: JSON.stringify({
-                description: 'Update ' + repoURI + ' (' + date + ')',
-                                 files: {
-                                     [filename]: { content: JSON.stringify({ banner: { image: banner, background, link }, data }) }
-                                 }
-            })
-        }
-    )
 }
-
-# Adapter le code suivant à votre store
-Deno.cron('telmi-interactive-en', '0 1,13 * * *', async () => {
-    await githubToTelmi('c2da96666a3a84397f19576d94d15a57', 'telmi-interactive-en.json', 'telmi-store-en', 'https://raw.githubusercontent.com/telmi-store-en/.github/master/profile/banner-telmi.jpg', '#2e144b', 'https://discord.gg/ZTA5FyERbg')
-})
 ```
 
-**Adaptez ce fichier pour indiquer le Token (Ligne "Authorization"), l'ID GIST et les dernières lignes du script.**
+| Clé | À renseigner avec |
+| --- | --- |
+| `org` | Le nom de votre organisation Github |
+| `gistId` | L'ID de votre GIST, noté précieusement à l'étape précédente |
+| `gistFilename` | Le nom du fichier de votre GIST |
+| `history` | Voir la section « L'historique du store » ci-dessous |
+| `banner` | L'image, la couleur de fond et le lien de votre bannière |
 
-Maintenant que votre fichier `main.ts` est prêt, nous pouvons effectuer le déploiement sur Deno :
+L'horaire de la synchronisation se règle de son côté dans `.github/workflows/sync-store.yml` :
 
 ```
-cd telmi-store-en
-deployctl deploy --prod --project=telmi-store-en --unstable src/main.ts
+  schedule:
+    - cron: '37 4 * * *'
 ```
 
-Une demande d'autorisation est demandée pour poursuivre.
+Ce format est celui de CRON, et l'heure est exprimée en **UTC**. Évitez de programmer la tâche pile à l'heure ronde (`0 4 * * *`) : c'est le moment où Github Actions est le plus chargé, et une tâche planifiée peut alors être retardée, voire purement et simplement abandonnée.
 
-![](assets/img/deno_02.png)
+Il ne reste qu'à pousser vos modifications :
 
-Si le déploiement réussis, vous devriez avoir un service accessible sur un domaine comme par exemple : `https://telmi-store-en.deno.dev` , mais également un fichier `deno.json` créé par le déploiement.
+```
+git add --all
+git commit -m "Configure the store synchronisation"
+git push
+```
 
-![](assets/img/deno_03.png)
+> Le workflow doit impérativement se trouver sur la branche par défaut de votre dépôt (`main`), car Github n'exécute les tâches planifiées que depuis celle-ci.
 
-Finalement, RDV sur [https://dash.deno.com](https://dash.deno.com) pour visualiser l'état de l'exécution du script par CRON. Le statut "Last Run" doit indiquer "Succeeded".
+### Vérifier que tout fonctionne
+
+Inutile d'attendre le lendemain, la synchronisation se déclenche à la demande. Dans votre dépôt `.github`, ouvrez l'onglet **Actions**, sélectionnez le workflow **Sync store**, puis **Run workflow**.
+
+La case **dry run** permet un essai à blanc : le fichier JSON est généré et le résumé d'exécution vous montre ce qu'il contient, mais rien n'est publié. Pratique pour vérifier votre configuration sans risque.
+
+Une fois l'exécution terminée, cliquez dessus pour consulter son résumé : vous y trouverez la liste des packs publiés, ainsi que les éventuels avertissements concernant les dépôts ignorés.
+
+Rechargez enfin l'URL de votre GIST, votre fichier JSON doit désormais contenir vos packs d'histoire.
+
+### L'historique du store
+
+À chaque exécution, le workflow conserve dans votre dépôt une copie datée du store :
+
+```
+store
+├── CHANGELOG.md                 # les évolutions notables, en clair
+└── telmi-interactive-en.json    # copie exacte de ce qui est publié sur le GIST
+```
+
+Le `CHANGELOG.md` ne retient que les changements qui comptent (ajout, retrait, nouvelle version d'un pack) et ignore la simple progression des compteurs de téléchargement. Vous disposez ainsi d'un historique lisible de votre store, et d'une copie de secours si le GIST venait à disparaître.
+
+Ce mécanisme remplit un second rôle, moins évident mais essentiel : **Github désactive automatiquement les tâches planifiées d'un dépôt public resté 60 jours sans activité**. Comme le workflow commite tous les jours, y compris lorsque rien n'a changé, ce compteur ne s'épuise jamais et votre store continue de se synchroniser.
+
+C'est pourquoi le réglage `history: true` est celui recommandé. Le passer à `false` supprime l'historique, mais vous prive du même coup de cette protection : il faudra alors penser à réactiver le workflow depuis l'onglet **Actions** chaque fois que Github le désactivera.
 
 ## Création d'un premier pack d'histoire
 
-> ⚠️ La création des packs d'histoire doit être très rigoureusement gérée, autrement, l'exécution du script quotidien sur Deno échouera si l'un de vos packs d'histoire est mal configuré, pouvant rendre alors votre store hors service ⚠️
+> ⚠️ La création des packs d'histoire doit être très rigoureusement gérée : un pack mal configuré est ignoré par la synchronisation et n'apparaîtra tout simplement pas sur votre store ⚠️
+
+Rassurez-vous cependant, un pack mal formé ne met plus l'ensemble du store en péril : il est écarté, signalé en avertissement dans le résumé d'exécution, et les autres packs sont publiés normalement. Pensez donc à consulter ce résumé si l'un de vos packs venait à manquer à l'appel.
 
 Pour que la synchronisation puisse fonctionner, il vous faut initialiser un premier pack d'histoire, afin de voir apparaître ce dernier sur telmi-sync.
 
@@ -365,10 +269,10 @@ Puis, une fois votre dépôt prêt, vous pourrez créer une "Realease" dans le m
 
 ![](assets/img/github_08.png)
 
-Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de packs (âge, titre, langue), autrement, le script planifié par CRON sur Deno sera en échec.
+Pour terminer, n'oubliez pas d'ajouter une description à votre dépôt, avec le nom du pack d'histoire utilisant la nomenclature des noms de packs (âge, titre, langue), autrement, la synchronisation ignorera ce dépôt.
 
 ![](assets/img/github_09.png)
 
-C'est tout bon, vérifiez bien le lendemain que votre nouveau pack d'histoire est correctement visible sur Telmi-Sync, puis répéter l'opération pour chaque pack d'histoire 💪
+C'est tout bon ! Déclenchez une synchronisation manuelle depuis l'onglet **Actions** pour voir apparaître immédiatement votre nouveau pack d'histoire sur Telmi-Sync, sans attendre l'exécution du lendemain. Puis répétez l'opération pour chaque pack d'histoire 💪
 
 ---
